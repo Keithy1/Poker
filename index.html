@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Poker AI">
-    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy42Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi43Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDI2LjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
+    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy42Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi47Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDI2LjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,6 +57,7 @@
     <!-- Video Background -->
     <video id="video" playsinline autoplay muted></video>
     <canvas id="canvas" class="hidden"></canvas>
+    <input type="file" id="screenshot-uploader" class="hidden" accept="image/*">
 
     <!-- Header -->
     <header class="flex-shrink-0">
@@ -106,6 +107,7 @@
         const statusDiv = document.getElementById('status');
         const torchButton = document.getElementById('torch-button');
         const torchIcon = document.getElementById('torch-icon');
+        const screenshotUploader = document.getElementById('screenshot-uploader');
         
         let cameraInitialized = false;
         let videoTrack = null;
@@ -167,10 +169,40 @@
             }
         });
         
+        // --- Central AI Call Function ---
+        async function getAIAdvice(payload, analysisType) {
+            setLoadingState(true, `Analyzing ${analysisType}...`);
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`API Error: ${response.status}`);
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const adviceJson = JSON.parse(candidate.content.parts[0].text);
+                    displayAdvice(adviceJson);
+                } else {
+                    throw new Error("AI response was empty. The input may be unreadable.");
+                }
+            } catch (error) {
+                console.error(`${analysisType} analysis failed:`, error);
+                if (analysisType === "Image") {
+                     showManualEntryForm(error.message);
+                } else {
+                    displayError(`Failed to get advice. ${error.message}`);
+                }
+            } finally {
+                setLoadingState(false);
+            }
+        }
+
         // --- Image Analysis ---
         async function analyzePokerScreen() {
-            setLoadingState(true, "Analyzing Image...");
-
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             const context = canvas.getContext('2d');
@@ -179,113 +211,79 @@
 
             const systemPrompt = `You are an expert poker AI. Analyze an image of a poker table. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
             const userQuery = "Analyze this poker table image.";
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
             const payload = {
                 contents: [{ parts: [{ text: userQuery }, { inlineData: { mimeType: "image/jpeg", data: base64ImageData } }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] },
                 generationConfig: { responseMimeType: "application/json" }
             };
-            
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) throw new Error(`API Error: ${response.status}`);
-                
-                const result = await response.json();
-                const candidate = result.candidates?.[0];
-
-                if (candidate && candidate.content?.parts?.[0]?.text) {
-                    const adviceJson = JSON.parse(candidate.content.parts[0].text);
-                    displayAdvice(adviceJson);
-                } else {
-                    throw new Error("AI response was empty. Image may be unreadable.");
-                }
-
-            } catch (error) {
-                console.error("Image analysis failed:", error);
-                showManualEntryForm(error.message);
-            } finally {
-                setLoadingState(false);
-            }
+            getAIAdvice(payload, "Image");
         }
         
         // --- Manual Data Entry Fallback ---
         function showManualEntryForm(reason) {
             adviceTitle.textContent = "Manual Entry";
             adviceContent.innerHTML = `
-                <p class="text-sm text-yellow-400 mb-4">Image analysis failed: ${reason}<br>Please enter the game details manually.</p>
+                <p class="text-sm text-yellow-400 mb-4">Image analysis failed: ${reason}<br>Please enter details manually or upload a screenshot.</p>
                 <div class="space-y-2 text-sm">
                     <input id="manual-my-cards" type="text" placeholder="My Cards (e.g., As Kd)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
-                    <input id="manual-community" type="text" placeholder="Community Cards (e.g., Ah Td 5c)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                    <input id="manual-community" type="text" placeholder="Community Cards (or leave blank)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
                     <div class="flex space-x-2">
                         <input id="manual-pot" type="text" placeholder="Pot Size" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
                         <input id="manual-stack" type="text" placeholder="My Stack" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
                     </div>
                 </div>
-                <button id="manual-submit" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Get Manual Advice</button>
+                <div class="flex space-x-2 mt-4">
+                     <button id="manual-submit" class="w-1/2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Get Text Advice</button>
+                     <button id="upload-btn" class="w-1/2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Upload Screenshot</button>
+                </div>
             `;
             adviceCard.classList.remove('opacity-0');
             document.getElementById('manual-submit').addEventListener('click', getManualAdvice);
+            document.getElementById('upload-btn').addEventListener('click', () => screenshotUploader.click());
         }
+        
+        screenshotUploader.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const base64ImageData = e.target.result.split(',')[1];
+                 const systemPrompt = `You are an expert poker AI. Analyze an image of a poker table. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
+                const userQuery = "Analyze this poker table screenshot.";
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }, { inlineData: { mimeType: file.type, data: base64ImageData } }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                    generationConfig: { responseMimeType: "application/json" }
+                };
+                getAIAdvice(payload, "Screenshot");
+            };
+            reader.readAsDataURL(file);
+        });
 
         async function getManualAdvice() {
-            setLoadingState(true, "Getting Manual Advice...");
-            
             const myCards = document.getElementById('manual-my-cards').value;
-            const communityCards = document.getElementById('manual-community').value;
+            let communityCards = document.getElementById('manual-community').value;
             const potSize = document.getElementById('manual-pot').value;
             const myStack = document.getElementById('manual-stack').value;
 
             if (!myCards) {
                 displayError("Please enter your cards.");
-                setLoadingState(false);
                 return;
             }
+            // Fix for user entering '0' or leaving blank for pre-flop
+            if (communityCards.trim() === '' || communityCards.trim() === '0') {
+                communityCards = 'Pre-flop';
+            }
 
-            const textPrompt = `
-                My Cards: ${myCards}
-                Community Cards: ${communityCards || 'Pre-flop'}
-                Pot Size: ${potSize || 'N/A'}
-                My Stack: ${myStack || 'N/A'}
-            `;
-            
+            const textPrompt = `My Cards: ${myCards}\nCommunity Cards: ${communityCards}\nPot Size: ${potSize || 'N/A'}\nMy Stack: ${myStack || 'N/A'}`;
             const systemPrompt = `You are an expert poker AI. Analyze the following text-based poker hand data. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.`;
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
             const payload = {
                 contents: [{ parts: [{ text: textPrompt }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] },
                 generationConfig: { responseMimeType: "application/json" }
             };
-            
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                if (!response.ok) throw new Error(`API Error: ${response.status}`);
-                const result = await response.json();
-                const candidate = result.candidates?.[0];
-                if (candidate && candidate.content?.parts?.[0]?.text) {
-                    const adviceJson = JSON.parse(candidate.content.parts[0].text);
-                    displayAdvice(adviceJson);
-                } else {
-                    throw new Error("AI response was empty.");
-                }
-            } catch (error) {
-                console.error("Manual analysis failed:", error);
-                displayError("Failed to get manual advice. Please check your input and try again.");
-            } finally {
-                setLoadingState(false);
-            }
+            getAIAdvice(payload, "Manual");
         }
         
         // --- UI Update Functions ---
@@ -356,3 +354,4 @@
     </script>
 </body>
 </html>
+
