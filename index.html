@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Poker AI">
-    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy42Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi43Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDI2LjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
+    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy42Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi43Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDIYLjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -169,68 +169,55 @@
             }
         });
         
-        // --- Central AI Call Function with Retry Logic ---
+        // --- Central AI Call Function with Simplified Payload ---
         async function getAIAdvice(payload, analysisType) {
-            const maxRetries = 3;
-            let delay = 1000; 
+            setLoadingState(true, `Analyzing ${analysisType}...`);
+            
+            const apiKey = "";
+            const model = 'gemini-2.5-flash-preview-05-20';
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
-            for (let attempt = 0; attempt < maxRetries; attempt++) {
-                const attemptMessage = attempt > 0 ? ` (Attempt ${attempt + 1})` : '';
-                setLoadingState(true, `Analyzing ${analysisType}...${attemptMessage}`);
-                
-                const apiKey = "";
-                const model = payload.contents[0].parts.some(part => part.inlineData) 
-                    ? 'gemini-2.5-flash-preview-05-20' 
-                    : 'gemini-2.5-flash-preview-05-20'; // Use same model for text
-                
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (response.ok) {
-                        const result = await response.json();
-                        const candidate = result.candidates?.[0];
-                        
-                        if (candidate?.finishReason === 'SAFETY') {
-                            throw new Error("Request blocked by AI safety filters.");
-                        }
-
-                        const textPart = candidate?.content?.parts?.find(part => part.text);
-                        if (textPart) {
-                            const cleanedText = textPart.text.replace(/```json/g, '').replace(/```/g, '').trim();
-                            const adviceJson = JSON.parse(cleanedText);
-                            displayAdvice(adviceJson);
-                            setLoadingState(false);
-                            return; 
-                        } else {
-                            throw new Error("AI response was empty or malformed.");
-                        }
-                    }
-
-                    if (response.status === 403 || response.status === 429 || response.status >= 500) {
-                        if (attempt === maxRetries - 1) throw new Error(`API Error: ${response.status} after ${maxRetries} attempts.`);
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        delay *= 2; 
-                    } else {
-                        throw new Error(`API Error: ${response.status}`);
-                    }
-                } catch (error) {
-                    console.error(`Attempt ${attempt + 1} failed:`, error);
-                    if (attempt === maxRetries - 1) {
-                        if (analysisType.includes("Image") || analysisType.includes("Pasted") || analysisType.includes("Screenshot")) {
-                            showManualEntryForm(error.message);
-                        } else {
-                            displayError(`Failed to get advice. ${error.message}`);
-                        }
-                        setLoadingState(false);
-                        return;
-                    }
+                if (!response.ok) {
+                    // Try to get more error details from the response body
+                    const errorBody = await response.json().catch(() => ({}));
+                    console.error("API Error Response:", errorBody);
+                    throw new Error(`API Error: ${response.status} - ${errorBody?.error?.message || 'Unknown error'}`);
                 }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate?.finishReason === 'SAFETY') {
+                    throw new Error("Request blocked by AI safety filters.");
+                }
+
+                const textPart = candidate?.content?.parts?.find(part => part.text);
+                if (textPart) {
+                    // Robust JSON parsing
+                    const jsonStringMatch = textPart.text.match(/\{[\s\S]*\}/);
+                    if (!jsonStringMatch) throw new Error("AI response did not contain valid JSON.");
+                    
+                    const adviceJson = JSON.parse(jsonStringMatch[0]);
+                    displayAdvice(adviceJson);
+                } else {
+                    throw new Error("AI response was empty or malformed.");
+                }
+            } catch (error) {
+                console.error(`Analysis failed:`, error);
+                if (analysisType.includes("Image") || analysisType.includes("Pasted") || analysisType.includes("Screenshot")) {
+                    showManualEntryForm(error.message);
+                } else {
+                    displayError(`Failed to get advice. ${error.message}`);
+                }
+            } finally {
+                setLoadingState(false);
             }
         }
 
@@ -263,20 +250,15 @@
         });
 
         function createImagePayload(base64Data, mimeType) {
-            const systemPrompt = `You are an expert poker AI. Analyze an image of a poker table. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
-            const userQuery = "Analyze this poker table image.";
+            const fullPrompt = `You are an expert poker AI. Analyze the attached image of a poker table. Respond ONLY with a valid JSON object without any markdown formatting: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
 
             return {
-                contents: [{ 
+                contents: [{
                     parts: [
-                        { text: userQuery }, 
+                        { text: fullPrompt },
                         { inlineData: { mimeType: mimeType, data: base64Data } }
-                    ] 
-                }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                },
-                generationConfig: { responseMimeType: "application/json" }
+                    ]
+                }]
             };
         }
 
@@ -341,15 +323,16 @@
                 communityCards = 'Pre-flop';
             }
 
-            const textPrompt = `My Cards: ${myCards}\nCommunity Cards: ${communityCards}\nPot Size: ${potSize || 'N/A'}\nMy Stack: ${myStack || 'N/A'}`;
-            const systemPrompt = `You are an expert poker AI. Analyze text-based poker data. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.`;
+            const fullPrompt = `You are an expert poker AI. Analyze the following text-based poker hand data. Respond ONLY with a valid JSON object without any markdown formatting: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.
+            
+Data:
+My Cards: ${myCards}
+Community Cards: ${communityCards}
+Pot Size: ${potSize || 'N/A'}
+My Stack: ${myStack || 'N/A'}`;
             
             const payload = {
-                contents: [{ parts: [{ text: textPrompt }] }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                },
-                generationConfig: { responseMimeType: "application/json" }
+                contents: [{ parts: [{ text: fullPrompt }] }]
             };
             getAIAdvice(payload, "Manual");
         }
@@ -422,6 +405,5 @@
     </script>
 </body>
 </html>
-
 
 
