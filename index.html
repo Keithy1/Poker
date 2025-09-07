@@ -135,7 +135,7 @@
                 video.addEventListener('loadedmetadata', () => {
                     analyzeButton.disabled = false;
                     analyzeButton.innerHTML = `
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                         <span>Analyze Game</span>`;
                     statusDiv.innerHTML = `
                         <span class="text-sm font-medium text-green-300">Camera Ready</span>
@@ -172,14 +172,18 @@
         // --- Central AI Call Function with Retry Logic ---
         async function getAIAdvice(payload, analysisType) {
             const maxRetries = 3;
-            let delay = 1000; // 1 second initial delay
+            let delay = 1000; 
 
             for (let attempt = 0; attempt < maxRetries; attempt++) {
                 const attemptMessage = attempt > 0 ? ` (Attempt ${attempt + 1})` : '';
                 setLoadingState(true, `Analyzing ${analysisType}...${attemptMessage}`);
                 
                 const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent?key=${apiKey}`;
+                const model = payload.contents[0].parts.some(part => part.inlineData) 
+                    ? 'gemini-2.5-flash-preview-05-20' 
+                    : 'gemini-2.5-flash-preview-05-20'; // Use same model for text
+                
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
                 try {
                     const response = await fetch(apiUrl, {
@@ -191,6 +195,11 @@
                     if (response.ok) {
                         const result = await response.json();
                         const candidate = result.candidates?.[0];
+                        
+                        if (candidate?.finishReason === 'SAFETY') {
+                            throw new Error("Request blocked by AI safety filters.");
+                        }
+
                         const textPart = candidate?.content?.parts?.find(part => part.text);
                         if (textPart) {
                             const cleanedText = textPart.text.replace(/```json/g, '').replace(/```/g, '').trim();
@@ -199,18 +208,12 @@
                             setLoadingState(false);
                             return; 
                         } else {
-                             // Handle cases where the response might be blocked by safety filters
-                            if (candidate?.finishReason === 'SAFETY') {
-                                throw new Error("Request blocked by AI safety filters.");
-                            }
                             throw new Error("AI response was empty or malformed.");
                         }
                     }
 
                     if (response.status === 403 || response.status === 429 || response.status >= 500) {
-                        if (attempt === maxRetries - 1) {
-                            throw new Error(`API Error: ${response.status} after ${maxRetries} attempts.`);
-                        }
+                        if (attempt === maxRetries - 1) throw new Error(`API Error: ${response.status} after ${maxRetries} attempts.`);
                         await new Promise(resolve => setTimeout(resolve, delay));
                         delay *= 2; 
                     } else {
@@ -219,7 +222,7 @@
                 } catch (error) {
                     console.error(`Attempt ${attempt + 1} failed:`, error);
                     if (attempt === maxRetries - 1) {
-                        if (analysisType === "Image" || analysisType.includes("Pasted") || analysisType.includes("Screenshot")) {
+                        if (analysisType.includes("Image") || analysisType.includes("Pasted") || analysisType.includes("Screenshot")) {
                             showManualEntryForm(error.message);
                         } else {
                             displayError(`Failed to get advice. ${error.message}`);
@@ -227,14 +230,9 @@
                         setLoadingState(false);
                         return;
                     }
-                    if (!error.message.includes("API Error")) {
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        delay *= 2;
-                    }
                 }
             }
         }
-
 
         // --- Image Analysis from Camera ---
         async function analyzePokerScreen() {
@@ -265,20 +263,20 @@
         });
 
         function createImagePayload(base64Data, mimeType) {
-            const userPrompt = `You are an expert poker AI. Analyze the attached image of a poker table. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
+            const systemPrompt = `You are an expert poker AI. Analyze an image of a poker table. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
+            const userQuery = "Analyze this poker table image.";
+
             return {
                 contents: [{ 
                     parts: [
-                        { text: userPrompt }, 
-                        { inline_data: { mime_type: mimeType, data: base64Data } }
+                        { text: userQuery }, 
+                        { inlineData: { mimeType: mimeType, data: base64Data } }
                     ] 
                 }],
-                safetySettings: [
-                    { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
-                    { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
-                    { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
-                    { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" },
-                ]
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                generationConfig: { responseMimeType: "application/json" }
             };
         }
 
@@ -344,43 +342,16 @@
             }
 
             const textPrompt = `My Cards: ${myCards}\nCommunity Cards: ${communityCards}\nPot Size: ${potSize || 'N/A'}\nMy Stack: ${myStack || 'N/A'}`;
-            const systemPrompt = `You are an expert poker AI. Analyze the following text-based poker hand data. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.`;
-            
-            const textApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${""}`;
+            const systemPrompt = `You are an expert poker AI. Analyze text-based poker data. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.`;
             
             const payload = {
-                contents: [{ parts: [{ text: `${systemPrompt}\n\n${textPrompt}` }] }],
-                safetySettings: [
-                    { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
-                    { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
-                    { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
-                    { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" },
-                ]
+                contents: [{ parts: [{ text: textPrompt }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                generationConfig: { responseMimeType: "application/json" }
             };
-            
-            setLoadingState(true, "Analyzing Manual Data...");
-            try {
-                 const response = await fetch(textApiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                 if (!response.ok) throw new Error(`API Error: ${response.status}`);
-                 const result = await response.json();
-                 const candidate = result.candidates?.[0];
-                 const textPart = candidate?.content?.parts?.find(part => part.text);
-                 if (textPart) {
-                    const cleanedText = textPart.text.replace(/```json/g, '').replace(/```/g, '').trim();
-                    const adviceJson = JSON.parse(cleanedText);
-                    displayAdvice(adviceJson);
-                 } else {
-                     throw new Error("AI response was empty.");
-                 }
-            } catch(error) {
-                displayError(`Failed to get advice. ${error.message}`);
-            } finally {
-                setLoadingState(false);
-            }
+            getAIAdvice(payload, "Manual");
         }
         
         // --- UI Update Functions ---
