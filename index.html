@@ -64,9 +64,12 @@
         <div class="hud-card rounded-xl p-4 flex flex-col space-y-3">
             <div class="flex items-center justify-between w-full">
                 <h1 class="text-xl md:text-2xl font-bold text-teal-300">AI Poker Advisor</h1>
-                <div id="status" class="flex items-center space-x-2">
-                    <span id="status-text" class="text-sm font-medium text-gray-300">No API Key</span>
-                    <div id="status-dot" class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="flex items-center space-x-2">
+                    <button id="manual-mode-button" class="bg-gray-600 hover:bg-gray-500 text-white text-xs font-bold py-1 px-3 rounded-md">Manual Entry</button>
+                    <div id="status" class="flex items-center space-x-2">
+                        <span id="status-text" class="text-sm font-medium text-gray-300">No API Key</span>
+                        <div id="status-dot" class="w-3 h-3 rounded-full bg-red-500"></div>
+                    </div>
                 </div>
             </div>
             <div id="api-key-section" class="w-full">
@@ -109,6 +112,7 @@
         const adviceContent = document.getElementById('advice-content');
         const statusText = document.getElementById('status-text');
         const statusDot = document.getElementById('status-dot');
+        const manualModeButton = document.getElementById('manual-mode-button');
         // Other elements
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
@@ -137,6 +141,10 @@
                 loadApiKey();
                  adviceCard.classList.add('opacity-0');
             }
+        });
+        
+        manualModeButton.addEventListener('click', () => {
+            showManualEntryForm('Manual mode activated.');
         });
         
         // --- Central AI Call Function ---
@@ -253,7 +261,7 @@
         function showManualEntryForm(reason) {
             adviceTitle.textContent = "Manual Entry";
             adviceContent.innerHTML = `
-                <p class="text-sm text-yellow-400 mb-4">Image analysis failed: ${reason}<br>Please enter details manually or paste a screenshot of the poker game.</p>
+                <p class="text-sm text-yellow-400 mb-4">${reason}<br>Please enter details manually or paste a screenshot of the poker game.</p>
                 <div class="space-y-2 text-sm">
                     <input id="manual-my-cards" type="text" placeholder="My Cards (e.g., As Kd)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600">
                     <input id="manual-community" type="text" placeholder="Community Cards (or leave blank)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600">
@@ -355,6 +363,5 @@
     </script>
 </body>
 </html>
-
 
 
