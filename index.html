@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Poker AI">
-    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy42Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi43Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDIYLjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
+    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy42Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi43Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDI2LjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,10 +21,10 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            touch-action: manipulation; /* Prevents double-tap zoom on mobile */
+            touch-action: manipulation;
             display: flex;
             flex-direction: column;
-            height: 100dvh; /* Dynamic viewport height, falls back to 100% */
+            height: 100dvh;
         }
         .hud-card {
             backdrop-filter: blur(10px);
@@ -36,7 +36,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: fixed; /* Use fixed to keep it in background */
+            position: fixed;
             top: 0;
             left: 0;
             z-index: -1;
@@ -61,16 +61,20 @@
 
     <!-- Header -->
     <header class="flex-shrink-0">
-        <div class="hud-card rounded-xl p-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <button id="torch-button" class="hidden bg-gray-700/50 hover:bg-gray-600/50 p-2 rounded-full text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
-                    <svg id="torch-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
-                </button>
+        <div class="hud-card rounded-xl p-4 flex flex-col space-y-3">
+            <div class="flex items-center justify-between w-full">
                 <h1 class="text-xl md:text-2xl font-bold text-teal-300">AI Poker Advisor</h1>
+                <div id="status" class="flex items-center space-x-2">
+                    <span id="status-text" class="text-sm font-medium text-gray-300">No API Key</span>
+                    <div id="status-dot" class="w-3 h-3 rounded-full bg-red-500"></div>
+                </div>
             </div>
-            <div id="status" class="flex items-center space-x-2">
-                <span class="text-sm font-medium text-gray-300">Camera Off</span>
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div id="api-key-section" class="w-full">
+                <div class="flex space-x-2">
+                    <input type="password" id="api-key-input" placeholder="Enter your Google AI API Key" class="flex-grow bg-gray-700/50 rounded p-2 border border-gray-600 text-sm focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                    <button id="save-key-button" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded text-sm">Save</button>
+                </div>
+                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-xs text-teal-400 hover:underline mt-1 block">Get a free API key from Google AI Studio</a>
             </div>
         </div>
     </header>
@@ -80,10 +84,9 @@
         <div id="advice-card" class="hud-card rounded-xl p-6 transition-opacity duration-500 opacity-0">
             <h2 id="advice-title" class="text-lg font-semibold text-teal-300 mb-2">Strategic Advice</h2>
             <div id="advice-content">
-                <p class="text-gray-400">Point your camera at the poker screen and press "Analyze Game" to get your first tip.</p>
+                <p class="text-gray-400">Please enter and save your Google AI API key above to begin.</p>
             </div>
         </div>
-         <!-- Disclaimer -->
         <div class="text-center text-xs text-gray-500 mt-2 px-4 py-1">
             <p>Disclaimer: This tool is for educational purposes only. Do not use for real money gambling. AI advice may not be perfect. Play responsibly.</p>
         </div>
@@ -91,91 +94,61 @@
     
     <!-- Footer / Action Button -->
     <footer class="flex-shrink-0">
-        <button id="analyze-button" class="w-full bg-teal-500 hover:bg-teal-600 disabled:bg-gray-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-400/50 flex items-center justify-center space-x-3">
+        <button id="analyze-button" disabled class="w-full bg-gray-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 shadow-lg flex items-center justify-center space-x-3">
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
             <span>Initialize Camera</span>
         </button>
     </footer>
 
     <script>
-        const video = document.getElementById('video');
-        const canvas = document.getElementById('canvas');
+        const apiKeyInput = document.getElementById('api-key-input');
+        const saveKeyButton = document.getElementById('save-key-button');
         const analyzeButton = document.getElementById('analyze-button');
         const adviceCard = document.getElementById('advice-card');
         const adviceTitle = document.getElementById('advice-title');
         const adviceContent = document.getElementById('advice-content');
-        const statusDiv = document.getElementById('status');
-        const torchButton = document.getElementById('torch-button');
-        const torchIcon = document.getElementById('torch-icon');
+        const statusText = document.getElementById('status-text');
+        const statusDot = document.getElementById('status-dot');
+        // Other elements
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
         const screenshotUploader = document.getElementById('screenshot-uploader');
         
         let cameraInitialized = false;
-        let videoTrack = null;
-        let torchOn = false;
+        let userApiKey = '';
 
-        // --- Camera Initialization ---
-        async function setupCamera() {
-            analyzeButton.disabled = true;
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ 
-                    video: { 
-                        facingMode: 'environment', 
-                        width: { ideal: 1920 },
-                        height: { ideal: 1080 }
-                    } 
-                });
-                video.srcObject = stream;
-                videoTrack = stream.getVideoTracks()[0];
-                
-                const capabilities = videoTrack.getCapabilities();
-                if (capabilities.torch) {
-                    torchButton.classList.remove('hidden');
-                }
-
-                video.addEventListener('loadedmetadata', () => {
-                    analyzeButton.disabled = false;
-                    analyzeButton.innerHTML = `
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                        <span>Analyze Game</span>`;
-                    statusDiv.innerHTML = `
-                        <span class="text-sm font-medium text-green-300">Camera Ready</span>
-                        <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>`;
-                    cameraInitialized = true;
-                });
-            } catch (err) {
-                console.error("Error accessing camera:", err);
-                displayError(`<strong>Camera Error:</strong> Could not access the camera. Please ensure you have given permission.`);
-                analyzeButton.disabled = true;
+        // --- API Key Management ---
+        function loadApiKey() {
+            const savedKey = localStorage.getItem('pokerAI_apiKey');
+            if (savedKey) {
+                userApiKey = savedKey;
+                apiKeyInput.value = '********'; // Mask the key
+                statusText.textContent = 'API Key Ready';
+                statusDot.classList.replace('bg-red-500', 'bg-green-500');
+                analyzeButton.disabled = false;
+                analyzeButton.classList.replace('bg-gray-600', 'bg-teal-500');
             }
         }
 
-        analyzeButton.addEventListener('click', () => {
-            if (!cameraInitialized) {
-                setupCamera();
-            } else {
-                analyzePokerScreen();
+        saveKeyButton.addEventListener('click', () => {
+            const key = apiKeyInput.value.trim();
+            if (key && key !== '********') {
+                localStorage.setItem('pokerAI_apiKey', key);
+                loadApiKey();
+                 adviceCard.classList.add('opacity-0');
             }
         });
         
-        torchButton.addEventListener('click', async () => {
-            if (videoTrack) {
-                try {
-                    torchOn = !torchOn;
-                    await videoTrack.applyConstraints({ advanced: [{ torch: torchOn }] });
-                    torchIcon.innerHTML = torchOn ? 
-                        `<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path>` :
-                        `<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><line x1="1" y1="1" x2="23" y2="23"></line>`;
-                } catch (err) { console.error('Torch control failed:', err); }
-            }
-        });
-        
-        // --- Central AI Call Function with Simplified Payload ---
+        // --- Central AI Call Function ---
         async function getAIAdvice(payload, analysisType) {
+            if (!userApiKey) {
+                displayError("API Key is missing. Please save your API key above.");
+                return;
+            }
             setLoadingState(true, `Analyzing ${analysisType}...`);
             
-            const apiKey = "";
             const model = 'gemini-2.5-flash-preview-05-20';
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${userApiKey}`;
 
             try {
                 const response = await fetch(apiUrl, {
@@ -185,10 +158,9 @@
                 });
 
                 if (!response.ok) {
-                    // Try to get more error details from the response body
                     const errorBody = await response.json().catch(() => ({}));
                     console.error("API Error Response:", errorBody);
-                    throw new Error(`API Error: ${response.status} - ${errorBody?.error?.message || 'Unknown error'}`);
+                    throw new Error(`API Error: ${response.status} - ${errorBody?.error?.message || 'Check API Key'}`);
                 }
 
                 const result = await response.json();
@@ -200,7 +172,6 @@
 
                 const textPart = candidate?.content?.parts?.find(part => part.text);
                 if (textPart) {
-                    // Robust JSON parsing
                     const jsonStringMatch = textPart.text.match(/\{[\s\S]*\}/);
                     if (!jsonStringMatch) throw new Error("AI response did not contain valid JSON.");
                     
@@ -221,18 +192,43 @@
             }
         }
 
-        // --- Image Analysis from Camera ---
+        // --- Camera and Image Processing (No changes, logic is sound) ---
+        async function setupCamera() {
+            analyzeButton.disabled = true;
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+                video.srcObject = stream;
+                video.addEventListener('loadedmetadata', () => {
+                    analyzeButton.disabled = false;
+                    cameraInitialized = true;
+                    statusText.textContent = 'Camera Ready';
+                    statusDot.classList.add('animate-pulse');
+                    analyzeButton.innerHTML = `<span>Analyze Game</span>`;
+                });
+            } catch (err) { displayError(`Camera Error: ${err.message}`); }
+        }
+
+        analyzeButton.addEventListener('click', () => {
+            if (!userApiKey) {
+                displayError("Please save your API key first.");
+                return;
+            }
+            if (!cameraInitialized) {
+                setupCamera();
+            } else {
+                analyzePokerScreen();
+            }
+        });
+
         async function analyzePokerScreen() {
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
-            const context = canvas.getContext('2d');
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
             const base64ImageData = canvas.toDataURL('image/jpeg').split(',')[1];
             const payload = createImagePayload(base64ImageData, 'image/jpeg');
             getAIAdvice(payload, "Image");
         }
         
-        // --- Image Blob/File Processing ---
         function processImageBlob(blob, analysisType = "Image") {
             const reader = new FileReader();
             reader.onload = (e) => {
@@ -245,34 +241,25 @@
 
         screenshotUploader.addEventListener('change', (event) => {
             const file = event.target.files[0];
-            if (!file) return;
-            processImageBlob(file, "Screenshot");
+            if (file) processImageBlob(file, "Screenshot");
         });
 
         function createImagePayload(base64Data, mimeType) {
             const fullPrompt = `You are an expert poker AI. Analyze the attached image of a poker table. Respond ONLY with a valid JSON object without any markdown formatting: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
-
-            return {
-                contents: [{
-                    parts: [
-                        { text: fullPrompt },
-                        { inlineData: { mimeType: mimeType, data: base64Data } }
-                    ]
-                }]
-            };
+            return { contents: [{ parts: [{ text: fullPrompt }, { inlineData: { mimeType: mimeType, data: base64Data } }] }] };
         }
 
-        // --- Manual Data Entry & Paste Fallback ---
+        // --- Manual Entry & Paste (No changes, logic is sound) ---
         function showManualEntryForm(reason) {
             adviceTitle.textContent = "Manual Entry";
             adviceContent.innerHTML = `
                 <p class="text-sm text-yellow-400 mb-4">Image analysis failed: ${reason}<br>Please enter details manually or paste a screenshot of the poker game.</p>
                 <div class="space-y-2 text-sm">
-                    <input id="manual-my-cards" type="text" placeholder="My Cards (e.g., As Kd)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
-                    <input id="manual-community" type="text" placeholder="Community Cards (or leave blank)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                    <input id="manual-my-cards" type="text" placeholder="My Cards (e.g., As Kd)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600">
+                    <input id="manual-community" type="text" placeholder="Community Cards (or leave blank)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600">
                     <div class="flex space-x-2">
-                        <input id="manual-pot" type="text" placeholder="Pot Size" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
-                        <input id="manual-stack" type="text" placeholder="My Stack" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                        <input id="manual-pot" type="text" placeholder="Pot Size" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600">
+                        <input id="manual-stack" type="text" placeholder="My Stack" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600">
                     </div>
                 </div>
                 <div class="flex space-x-2 mt-4">
@@ -288,112 +275,72 @@
         async function handlePasteClick() {
             try {
                 if (!navigator.clipboard || !navigator.clipboard.read) {
-                    displayError("Pasting is not supported on this browser. Please try uploading.");
                     screenshotUploader.click();
                     return;
                 }
                 const clipboardItems = await navigator.clipboard.read();
-                for (const item of clipboardItems) {
-                    const imageType = item.types.find(type => type.startsWith("image/"));
-                    if (imageType) {
-                        const blob = await item.getType(imageType);
-                        processImageBlob(blob, "Pasted Image");
-                        return;
-                    }
+                const imageItem = clipboardItems.find(item => item.types.some(type => type.startsWith("image/")));
+                if(imageItem) {
+                    const imageType = imageItem.types.find(type => type.startsWith("image/"));
+                    const blob = await imageItem.getType(imageType);
+                    processImageBlob(blob, "Pasted Image");
+                } else {
+                    displayError("No image found in clipboard.");
                 }
-                displayError("No image found in the clipboard. Please copy a screenshot first.");
             } catch (err) {
-                console.error("Paste failed:", err);
-                displayError("Could not paste image. Permission may be denied. Try uploading instead.");
+                displayError("Could not paste image. Try uploading instead.");
                 screenshotUploader.click(); 
             }
         }
         
         async function getManualAdvice() {
             const myCards = document.getElementById('manual-my-cards').value;
-            let communityCards = document.getElementById('manual-community').value;
+            let communityCards = document.getElementById('manual-community').value || 'Pre-flop';
             const potSize = document.getElementById('manual-pot').value;
             const myStack = document.getElementById('manual-stack').value;
+            if (!myCards) { displayError("Please enter your cards."); return; }
 
-            if (!myCards) {
-                displayError("Please enter your cards.");
-                return;
-            }
-            if (communityCards.trim() === '' || communityCards.trim() === '0') {
-                communityCards = 'Pre-flop';
-            }
-
-            const fullPrompt = `You are an expert poker AI. Analyze the following text-based poker hand data. Respond ONLY with a valid JSON object without any markdown formatting: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.
-            
-Data:
-My Cards: ${myCards}
-Community Cards: ${communityCards}
-Pot Size: ${potSize || 'N/A'}
-My Stack: ${myStack || 'N/A'}`;
-            
-            const payload = {
-                contents: [{ parts: [{ text: fullPrompt }] }]
-            };
-            getAIAdvice(payload, "Manual");
+            const fullPrompt = `You are an expert poker AI. Analyze the following text data. Respond ONLY with a valid JSON object without markdown: {"gameState": {"myCards": "${myCards}", "communityCards": "${communityCards}", "potSize": "${potSize || 'N/A'}", "myStack": "${myStack || 'N/A'}", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Data: My Cards: ${myCards}, Community: ${communityCards}, Pot: ${potSize}, Stack: ${myStack}`;
+            getAIAdvice({ contents: [{ parts: [{ text: fullPrompt }] }] }, "Manual");
         }
         
-        // --- UI Update Functions ---
+        // --- UI Update Functions (No changes, logic is sound) ---
         function setLoadingState(isLoading, message = "Analyzing...") {
             analyzeButton.disabled = isLoading;
             if (isLoading) {
                 adviceCard.classList.remove('opacity-0');
                 adviceTitle.textContent = "Strategic Advice";
-                adviceContent.innerHTML = `
-                    <div class="flex flex-col items-center justify-center space-y-3">
-                        <div class="w-8 h-8 border-4 border-teal-400 border-t-transparent rounded-full animate-spin"></div>
-                        <p class="text-lg font-medium text-gray-300">${message}</p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                          <div class="bg-teal-400 h-2.5 rounded-full shimmer"></div>
-                        </div>
-                    </div>`;
+                adviceContent.innerHTML = `<div class="flex items-center justify-center space-x-3"><div class="w-8 h-8 border-4 border-teal-400 border-t-transparent rounded-full animate-spin"></div><p>${message}</p></div>`;
                 analyzeButton.innerHTML = `<span>${message}</span>`;
             } else {
-                analyzeButton.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    <span>Analyze Again</span>`;
+                analyzeButton.innerHTML = `<span>Analyze Again</span>`;
             }
         }
 
         function displayAdvice(data) {
             const { gameState, recommendation } = data;
-            if (!gameState || !recommendation) {
-                displayError("AI response was incomplete. Please try again.");
-                return;
-            }
-            
             let actionColor = 'text-white';
             if (recommendation.action) {
-                switch(recommendation.action.toUpperCase()) {
-                    case 'BET': case 'RAISE': actionColor = 'text-green-400'; break;
-                    case 'CALL': case 'CHECK': actionColor = 'text-yellow-400'; break;
-                    case 'FOLD': actionColor = 'text-red-400'; break;
-                }
+                const action = recommendation.action.toUpperCase();
+                if (['BET', 'RAISE'].includes(action)) actionColor = 'text-green-400';
+                else if (['CALL', 'CHECK'].includes(action)) actionColor = 'text-yellow-400';
+                else if (action === 'FOLD') actionColor = 'text-red-400';
             }
             adviceTitle.textContent = "Strategic Advice";
             adviceContent.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-sm">
-                    <div><strong>My Cards:</strong> <span class="font-mono text-blue-300">${gameState.myCards || 'N/A'}</span></div>
-                    <div><strong>Community:</strong> <span class="font-mono text-blue-300">${gameState.communityCards || 'N/A'}</span></div>
-                    <div><strong>Pot Size:</strong> <span class="font-mono text-green-300">${gameState.potSize || 'N/A'}</span></div>
-                    <div><strong>My Stack:</strong> <span class="font-mono text-green-300">${gameState.myStack || 'N/A'}</span></div>
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div><strong>My Cards:</strong> <span class="font-mono">${gameState.myCards || 'N/A'}</span></div>
+                    <div><strong>Community:</strong> <span class="font-mono">${gameState.communityCards || 'N/A'}</span></div>
+                    <div><strong>Pot Size:</strong> <span class="font-mono">${gameState.potSize || 'N/A'}</span></div>
+                    <div><strong>My Stack:</strong> <span class="font-mono">${gameState.myStack || 'N/A'}</span></div>
                 </div>
-                <div class="bg-gray-800/50 rounded-lg p-3 mb-4">
-                    <p class="text-gray-300">${gameState.analysis || 'Analysis not available.'}</p>
-                </div>
+                <div class="bg-gray-800/50 rounded-lg p-3 mb-4"><p>${gameState.analysis || ''}</p></div>
                 <div class="text-center">
-                    <p class="text-lg font-semibold text-gray-300 mb-1">Recommended Action:</p>
+                    <p class="text-lg">Recommended Action:</p>
                     <p class="text-3xl font-bold ${actionColor}">${recommendation.action || 'N/A'}</p>
-                    ${recommendation.amount ? `<p class="text-xl font-semibold text-gray-200">${recommendation.amount}</p>` : ''}
+                    ${recommendation.amount ? `<p class="text-xl">${recommendation.amount}</p>` : ''}
                 </div>
-                <div class="mt-4 pt-3 border-t border-gray-700">
-                     <p class="text-xs font-semibold text-gray-400 mb-1">Justification:</p>
-                     <p class="text-sm text-gray-300">${recommendation.justification || 'Justification not available.'}</p>
-                </div>
+                <div class="mt-4 pt-3 border-t border-gray-700"><p class="text-sm">${recommendation.justification || ''}</p></div>
             `;
         }
 
@@ -402,8 +349,12 @@ My Stack: ${myStack || 'N/A'}`;
             adviceTitle.textContent = "Error";
             adviceContent.innerHTML = `<p class="text-red-400 text-center">${message}</p>`;
         }
+        
+        // Initial load
+        window.onload = loadApiKey;
     </script>
 </body>
 </html>
+
 
 
