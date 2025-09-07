@@ -26,6 +26,9 @@
             flex-direction: column;
             height: 100dvh;
         }
+        main {
+            overflow-y: auto; /* This enables scrolling on the main content area */
+        }
         .hud-card {
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -40,15 +43,6 @@
             top: 0;
             left: 0;
             z-index: -1;
-        }
-        .shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
-        }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
         }
     </style>
 </head>
@@ -66,7 +60,7 @@
                 <h1 class="text-xl md:text-2xl font-bold text-teal-300">AI Poker Advisor</h1>
                 <div class="flex items-center space-x-2">
                     <button id="manual-mode-button" class="bg-gray-600 hover:bg-gray-500 text-white text-xs font-bold py-1 px-3 rounded-md">Manual Entry</button>
-                    <div id="status" class="flex items-center space-x-2">
+                    <div id="status" class="flex items-center space-x-2 cursor-pointer">
                         <span id="status-text" class="text-sm font-medium text-gray-300">No API Key</span>
                         <div id="status-dot" class="w-3 h-3 rounded-full bg-red-500"></div>
                     </div>
@@ -110,9 +104,11 @@
         const adviceCard = document.getElementById('advice-card');
         const adviceTitle = document.getElementById('advice-title');
         const adviceContent = document.getElementById('advice-content');
+        const statusDiv = document.getElementById('status');
         const statusText = document.getElementById('status-text');
         const statusDot = document.getElementById('status-dot');
         const manualModeButton = document.getElementById('manual-mode-button');
+        const apiKeySection = document.getElementById('api-key-section');
         // Other elements
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
@@ -126,7 +122,7 @@
             const savedKey = localStorage.getItem('pokerAI_apiKey');
             if (savedKey) {
                 userApiKey = savedKey;
-                apiKeyInput.value = '********'; // Mask the key
+                apiKeySection.classList.add('hidden');
                 statusText.textContent = 'API Key Ready';
                 statusDot.classList.replace('bg-red-500', 'bg-green-500');
                 analyzeButton.disabled = false;
@@ -139,8 +135,12 @@
             if (key && key !== '********') {
                 localStorage.setItem('pokerAI_apiKey', key);
                 loadApiKey();
-                 adviceCard.classList.add('opacity-0');
+                adviceCard.classList.add('opacity-0');
             }
+        });
+
+        statusDiv.addEventListener('click', () => {
+            apiKeySection.classList.toggle('hidden');
         });
         
         manualModeButton.addEventListener('click', () => {
@@ -363,5 +363,6 @@
     </script>
 </body>
 </html>
+
 
 
