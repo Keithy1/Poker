@@ -15,9 +15,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
         body {
             font-family: 'Inter', sans-serif;
             touch-action: manipulation; /* Prevents double-tap zoom on mobile */
+            display: flex;
+            flex-direction: column;
+            height: 100dvh; /* Dynamic viewport height, falls back to 100% */
         }
         .hud-card {
             backdrop-filter: blur(10px);
@@ -29,7 +36,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
+            position: fixed; /* Use fixed to keep it in background */
             top: 0;
             left: 0;
             z-index: -1;
@@ -45,60 +52,56 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white overflow-hidden h-screen flex flex-col">
+<body class="bg-gray-900 text-white p-4 space-y-4">
 
     <!-- Video Background -->
     <video id="video" playsinline autoplay muted></video>
     <canvas id="canvas" class="hidden"></canvas>
 
-    <!-- Main Content -->
-    <div class="relative flex flex-col h-full p-4 md:p-6 space-y-4">
-        
-        <!-- Header -->
-        <header class="flex-shrink-0">
-            <div class="hud-card rounded-xl p-4 flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <button id="torch-button" class="hidden bg-gray-700/50 hover:bg-gray-600/50 p-2 rounded-full text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
-                        <svg id="torch-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
-                    </button>
-                    <h1 class="text-xl md:text-2xl font-bold text-teal-300">AI Poker Advisor</h1>
-                </div>
-                <div id="status" class="flex items-center space-x-2">
-                    <span class="text-sm font-medium text-gray-300">Camera Off</span>
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                </div>
+    <!-- Header -->
+    <header class="flex-shrink-0">
+        <div class="hud-card rounded-xl p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <button id="torch-button" class="hidden bg-gray-700/50 hover:bg-gray-600/50 p-2 rounded-full text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
+                    <svg id="torch-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                </button>
+                <h1 class="text-xl md:text-2xl font-bold text-teal-300">AI Poker Advisor</h1>
             </div>
-        </header>
+            <div id="status" class="flex items-center space-x-2">
+                <span class="text-sm font-medium text-gray-300">Camera Off</span>
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            </div>
+        </div>
+    </header>
 
-        <!-- Main analysis area -->
-        <main class="flex-grow flex flex-col justify-end">
-            <div id="advice-card" class="hud-card rounded-xl p-6 transition-opacity duration-500 opacity-0">
-                <h2 class="text-lg font-semibold text-teal-300 mb-2">Strategic Advice</h2>
-                <div id="advice-content">
-                    <p class="text-gray-400">Point your camera at the poker screen and press "Analyze Game" to get your first tip.</p>
-                </div>
+    <!-- Main analysis area -->
+    <main class="flex-grow flex flex-col justify-end min-h-0">
+        <div id="advice-card" class="hud-card rounded-xl p-6 transition-opacity duration-500 opacity-0">
+            <h2 id="advice-title" class="text-lg font-semibold text-teal-300 mb-2">Strategic Advice</h2>
+            <div id="advice-content">
+                <p class="text-gray-400">Point your camera at the poker screen and press "Analyze Game" to get your first tip.</p>
             </div>
-             <!-- Disclaimer -->
-            <div class="text-center text-xs text-gray-500 mt-2 px-4 py-1">
-                <p>Disclaimer: This tool is for educational purposes only. Do not use for real money gambling. AI advice may not be perfect. Play responsibly.</p>
-            </div>
-        </main>
-        
-        <!-- Footer / Action Button -->
-        <footer class="flex-shrink-0">
-            <button id="analyze-button" class="w-full bg-teal-500 hover:bg-teal-600 disabled:bg-gray-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-400/50 flex items-center justify-center space-x-3">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                <span>Initialize Camera</span>
-            </button>
-        </footer>
-
-    </div>
+        </div>
+         <!-- Disclaimer -->
+        <div class="text-center text-xs text-gray-500 mt-2 px-4 py-1">
+            <p>Disclaimer: This tool is for educational purposes only. Do not use for real money gambling. AI advice may not be perfect. Play responsibly.</p>
+        </div>
+    </main>
+    
+    <!-- Footer / Action Button -->
+    <footer class="flex-shrink-0">
+        <button id="analyze-button" class="w-full bg-teal-500 hover:bg-teal-600 disabled:bg-gray-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-400/50 flex items-center justify-center space-x-3">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            <span>Initialize Camera</span>
+        </button>
+    </footer>
 
     <script>
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
         const analyzeButton = document.getElementById('analyze-button');
         const adviceCard = document.getElementById('advice-card');
+        const adviceTitle = document.getElementById('advice-title');
         const adviceContent = document.getElementById('advice-content');
         const statusDiv = document.getElementById('status');
         const torchButton = document.getElementById('torch-button');
@@ -110,11 +113,11 @@
 
         // --- Camera Initialization ---
         async function setupCamera() {
-            analyzeButton.disabled = true; // Disable button during setup
+            analyzeButton.disabled = true;
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ 
                     video: { 
-                        facingMode: 'environment', // Prefer the rear camera
+                        facingMode: 'environment', 
                         width: { ideal: 1920 },
                         height: { ideal: 1080 }
                     } 
@@ -122,14 +125,13 @@
                 video.srcObject = stream;
                 videoTrack = stream.getVideoTracks()[0];
                 
-                // Check for torch capabilities
                 const capabilities = videoTrack.getCapabilities();
                 if (capabilities.torch) {
                     torchButton.classList.remove('hidden');
                 }
 
                 video.addEventListener('loadedmetadata', () => {
-                    analyzeButton.disabled = false; // Re-enable only when fully ready
+                    analyzeButton.disabled = false;
                     analyzeButton.innerHTML = `
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                         <span>Analyze Game</span>`;
@@ -140,12 +142,8 @@
                 });
             } catch (err) {
                 console.error("Error accessing camera:", err);
-                adviceContent.innerHTML = `<p class="text-red-400"><strong>Camera Error:</strong> Could not access the camera. Please ensure you have given permission and are using a secure (HTTPS) connection.</p>`;
-                adviceCard.classList.remove('opacity-0');
-                 analyzeButton.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                    <span>Camera Error</span>`;
-                 analyzeButton.disabled = true; // Keep disabled on error
+                displayError(`<strong>Camera Error:</strong> Could not access the camera. Please ensure you have given permission.`);
+                analyzeButton.disabled = true;
             }
         }
 
@@ -157,75 +155,37 @@
             }
         });
         
-        // --- Torch Control ---
         torchButton.addEventListener('click', async () => {
             if (videoTrack) {
                 try {
                     torchOn = !torchOn;
-                    await videoTrack.applyConstraints({
-                        advanced: [{ torch: torchOn }]
-                    });
+                    await videoTrack.applyConstraints({ advanced: [{ torch: torchOn }] });
                     torchIcon.innerHTML = torchOn ? 
                         `<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path>` :
                         `<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><line x1="1" y1="1" x2="23" y2="23"></line>`;
-                } catch (err) {
-                    console.error('Torch control failed:', err);
-                }
+                } catch (err) { console.error('Torch control failed:', err); }
             }
         });
-
-        // --- AI Analysis Logic ---
+        
+        // --- Image Analysis ---
         async function analyzePokerScreen() {
-            setLoadingState(true);
+            setLoadingState(true, "Analyzing Image...");
 
-            // 1. Capture image from video
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             const context = canvas.getContext('2d');
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
             const base64ImageData = canvas.toDataURL('image/jpeg').split(',')[1];
 
-            // 2. Construct the prompt for the AI
-            const systemPrompt = `You are a world-class poker strategy AI named "Ace Advisor". Your goal is to analyze an image of an online poker table (Texas Hold'em) and provide expert, actionable advice.
-
-            **Output Format:**
-            Respond *only* with a valid JSON object. Do not include any other text or markdown formatting. The JSON must have the following structure:
-            {
-              "gameState": {
-                "myCards": "e.g., 'As Kd'",
-                "communityCards": "e.g., 'Ah 10s 2c'",
-                "potSize": "e.g., '$25.50'",
-                "myStack": "e.g., '$150.20'",
-                "analysis": "A brief summary of the current situation."
-              },
-              "recommendation": {
-                "action": "e.g., 'BET', 'RAISE', 'CALL', 'CHECK', 'FOLD'",
-                "amount": "e.g., 'Bet between $12 and $15'",
-                "justification": "e.g., 'You have top pair, top kicker on a dry board. A value bet is recommended to get called by weaker aces or draws.'"
-              }
-            }
-            If any information cannot be clearly determined from the image, use "N/A" for that field.
-            `;
-
-            const userQuery = "Analyze this poker table image and provide your strategic advice.";
-
-            // 3. Call the Gemini API
-            const apiKey = ""; // Canvas will provide this
+            const systemPrompt = `You are an expert poker AI. Analyze an image of a poker table. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
+            const userQuery = "Analyze this poker table image.";
+            const apiKey = "";
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
             const payload = {
-                contents: [{
-                    parts: [
-                        { text: userQuery },
-                        { inlineData: { mimeType: "image/jpeg", data: base64ImageData } }
-                    ]
-                }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                },
-                generationConfig: {
-                    responseMimeType: "application/json"
-                }
+                contents: [{ parts: [{ text: userQuery }, { inlineData: { mimeType: "image/jpeg", data: base64ImageData } }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: { responseMimeType: "application/json" }
             };
             
             try {
@@ -235,10 +195,8 @@
                     body: JSON.stringify(payload)
                 });
 
-                if (!response.ok) {
-                    throw new Error(`API Error: ${response.status} ${response.statusText}`);
-                }
-
+                if (!response.ok) throw new Error(`API Error: ${response.status}`);
+                
                 const result = await response.json();
                 const candidate = result.candidates?.[0];
 
@@ -246,31 +204,105 @@
                     const adviceJson = JSON.parse(candidate.content.parts[0].text);
                     displayAdvice(adviceJson);
                 } else {
-                    throw new Error("Invalid response structure from AI.");
+                    throw new Error("AI response was empty. Image may be unreadable.");
                 }
 
             } catch (error) {
-                console.error("Error analyzing image:", error);
-                displayError("Failed to get advice from the AI. The image might be blurry or the server could be busy. Please try again.");
+                console.error("Image analysis failed:", error);
+                showManualEntryForm(error.message);
+            } finally {
+                setLoadingState(false);
+            }
+        }
+        
+        // --- Manual Data Entry Fallback ---
+        function showManualEntryForm(reason) {
+            adviceTitle.textContent = "Manual Entry";
+            adviceContent.innerHTML = `
+                <p class="text-sm text-yellow-400 mb-4">Image analysis failed: ${reason}<br>Please enter the game details manually.</p>
+                <div class="space-y-2 text-sm">
+                    <input id="manual-my-cards" type="text" placeholder="My Cards (e.g., As Kd)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                    <input id="manual-community" type="text" placeholder="Community Cards (e.g., Ah Td 5c)" class="w-full bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                    <div class="flex space-x-2">
+                        <input id="manual-pot" type="text" placeholder="Pot Size" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                        <input id="manual-stack" type="text" placeholder="My Stack" class="w-1/2 bg-gray-700/50 rounded p-2 border border-gray-600 focus:ring-2 focus:ring-teal-400 focus:outline-none">
+                    </div>
+                </div>
+                <button id="manual-submit" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Get Manual Advice</button>
+            `;
+            adviceCard.classList.remove('opacity-0');
+            document.getElementById('manual-submit').addEventListener('click', getManualAdvice);
+        }
+
+        async function getManualAdvice() {
+            setLoadingState(true, "Getting Manual Advice...");
+            
+            const myCards = document.getElementById('manual-my-cards').value;
+            const communityCards = document.getElementById('manual-community').value;
+            const potSize = document.getElementById('manual-pot').value;
+            const myStack = document.getElementById('manual-stack').value;
+
+            if (!myCards) {
+                displayError("Please enter your cards.");
+                setLoadingState(false);
+                return;
+            }
+
+            const textPrompt = `
+                My Cards: ${myCards}
+                Community Cards: ${communityCards || 'Pre-flop'}
+                Pot Size: ${potSize || 'N/A'}
+                My Stack: ${myStack || 'N/A'}
+            `;
+            
+            const systemPrompt = `You are an expert poker AI. Analyze the following text-based poker hand data. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.`;
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: textPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: { responseMimeType: "application/json" }
+            };
+            
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`API Error: ${response.status}`);
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const adviceJson = JSON.parse(candidate.content.parts[0].text);
+                    displayAdvice(adviceJson);
+                } else {
+                    throw new Error("AI response was empty.");
+                }
+            } catch (error) {
+                console.error("Manual analysis failed:", error);
+                displayError("Failed to get manual advice. Please check your input and try again.");
             } finally {
                 setLoadingState(false);
             }
         }
         
         // --- UI Update Functions ---
-        function setLoadingState(isLoading) {
+        function setLoadingState(isLoading, message = "Analyzing...") {
             analyzeButton.disabled = isLoading;
             if (isLoading) {
                 adviceCard.classList.remove('opacity-0');
+                adviceTitle.textContent = "Strategic Advice";
                 adviceContent.innerHTML = `
                     <div class="flex flex-col items-center justify-center space-y-3">
                         <div class="w-8 h-8 border-4 border-teal-400 border-t-transparent rounded-full animate-spin"></div>
-                        <p class="text-lg font-medium text-gray-300">Ace Advisor is thinking...</p>
+                        <p class="text-lg font-medium text-gray-300">${message}</p>
                         <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
                           <div class="bg-teal-400 h-2.5 rounded-full shimmer"></div>
                         </div>
                     </div>`;
-                analyzeButton.innerHTML = `<span>Analyzing...</span>`;
+                analyzeButton.innerHTML = `<span>${message}</span>`;
             } else {
                 analyzeButton.innerHTML = `
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
@@ -280,25 +312,20 @@
 
         function displayAdvice(data) {
             const { gameState, recommendation } = data;
+            if (!gameState || !recommendation) {
+                displayError("AI response was incomplete. Please try again.");
+                return;
+            }
             
             let actionColor = 'text-white';
             if (recommendation.action) {
                 switch(recommendation.action.toUpperCase()) {
-                    case 'BET':
-                    case 'RAISE':
-                        actionColor = 'text-green-400';
-                        break;
-                    case 'CALL':
-                    case 'CHECK':
-                        actionColor = 'text-yellow-400';
-                        break;
-                    case 'FOLD':
-                        actionColor = 'text-red-400';
-                        break;
+                    case 'BET': case 'RAISE': actionColor = 'text-green-400'; break;
+                    case 'CALL': case 'CHECK': actionColor = 'text-yellow-400'; break;
+                    case 'FOLD': actionColor = 'text-red-400'; break;
                 }
             }
-            
-
+            adviceTitle.textContent = "Strategic Advice";
             adviceContent.innerHTML = `
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-sm">
                     <div><strong>My Cards:</strong> <span class="font-mono text-blue-300">${gameState.myCards || 'N/A'}</span></div>
@@ -322,6 +349,8 @@
         }
 
         function displayError(message) {
+            adviceCard.classList.remove('opacity-0');
+            adviceTitle.textContent = "Error";
             adviceContent.innerHTML = `<p class="text-red-400 text-center">${message}</p>`;
         }
     </script>
