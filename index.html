@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Poker AI">
-    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy46Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi43Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDI2LjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
+    <link rel="manifest" href="data:application/json;charset=utf-8,{&quot;name&quot;:&quot;AI Poker Advisor&quot;,&quot;short_name&quot;:&quot;Poker AI&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231a202c&quot;,&quot;theme_color&quot;:&quot;%232dd4bf&quot;,&quot;description&quot;:&quot;Get real-time poker strategy advice using your camera.&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgOTZjMCA1My4wMiA0Mi45OCA5NiA5NiA5NmM1My4wMiAwIDk2LTQyLjk4IDk2LTk2cy00Mi45OC05Ni05Ni05NlM0Mi45OCAwIDAgNDguOTggMCA5NnoiLz48cGF0aCBmaWxsPSIjMkRENEJGIiBkPSJNNjMuMzQgMTU4LjY2Yy0xMS41Ni0xMS41Ni0xOC4wMi0xOC42OC00NC4zN2ExMDMuMDcgMTAzLjA3IDAgMCAxIDMuNTQtMjcuMThsNjcuNTkgNjcuNTljLTExLjkyIDMuNTItMjQuNDIgMy41Mi0zNi4wMi0uMDItNi40My0xLjk1LTEyLjQ2LTQuODctMTcuNzgtOS4xOHptNjcuNzQtMTI1LjMyYzExLjU2IDExLjU2IDE4LjY4IDI3LjAyIDE4LjY4IDQ0LjM3IDAgMTcuMzUtNS4zMiAzMy44MS0xNS4xMiA0Ny4yMWwtNjQuMjktNjQuMjlDODcuNjYgNDcuODkgMTA0LjEzIDQyLjYgMTIxLjQ4IDMyLjhhOTMuNiA5My42IDAgMCAxIDkuNi41NHptLTc3LjIgNjUuNDhjNC45Ni0xMS4wNCAxMy4zNS0yMC4yNSAyMy45MS0yNS44NmwxOS4zMyAxOS4zM2MtMi44NiAyLjAxLTUuMjIgNC44Ny02Ljc3IDguMDlsLTE5LjI5IDE5LjI5Yy0zLjQtMy45MS02LjA1Ljg3LTcuMTgtMTAuODZ6bTU2LjM5LTQwLjU0bDE5LjMzIDE5LjMzYy42Mi0zLjM4LS4wMi03LjE5LTEuOTYtMTAuMjZsLTEwLjM4LTEwLjM4Yy0yLjYxLTEuODMtNS43NC0yLjg1LTguOTgtMi41OHoiLz48L2c+PC9zdmc+&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;},{&quot;src&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PHBhdGggZmlsbD0iIzFBMjAyQyIgZD0iTTAgMjU2YzAgMTQxLjQgMTE0LjYgMjU2IDI1NiAyNTZzMjU2LTExNC42IDI1Ni0yNTZTMzk3LjQgMCAyNTYgMCAxMTQuNiAwIDAgMTI5LjQgMCAyNTZ6Ii8+PHBhdGggZmlsbD0iIzJERDNCRiIgZD0iTTExNS4xNiA0NTMuMzNjLTM3LjQ4LTM3LjQ4LTYwLjUtOTAuMjUtNjAuNS0xNDcuOGEyNzQuNjMgMjc0LjYzIDAgMCAxIDExLjQ3LTkyLjNsMjE4LjkzIDIxOC45M2MtMzguNjYgMTEuNC03OS4xNCAxMS40LTExNi43Ny0uMDgtMjAuODQtNi4zMi00MC4zOC0xNS44LTU3LjYxLTI5Ljc1em0yMTkuNTQtNDA4LjA4YzM3LjQ4IDM3LjQ4IDYwLjUgOTAuMjUgNjAuNSAxNDcuOCAwIDU2LjIzLTE3LjIzIDEwOS41NC00OC45NyAxNTIuOThMMTAxLjQyIDEwMS40MmMzNy44Mi0yMy45OCA4NS45My0zOS44IDEzNy45My0zOS44YTI0OS4zNiAyNDkuMzYgMCAwIDEgMzEuMSAxLjc3em0tMjUwLjI0IDIxMi4yYzE2LjA4LTM1LjggNDMuMjgtNjUuNiA3Ny41LTg0LjE4bDYyLjYyIDYyLjYyYy05LjI3IDYuNS0xNi45MiAxNS44LTIxLjk0IDI2LjIyTDExOS44NiAzNjAuNGMtMTEtMTIuNjctMTkuNi0yOC4xLTIzLjI2LTM0LjU0em0xODAuNjYtMTMyLjNsNjIuNjIgNjIuNjJjMi0xMC45Ny4wNi0yMy4zLTYuMzUtMzMuMjNsLTMzLjYyLTMzLjYyYy04LjQ1LTEuOTItMTguNi05LjIzLTI4Ljk4LTguMzV6Ii8+PC9nPjwvc3ZnPg==&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -179,7 +179,7 @@
                 setLoadingState(true, `Analyzing ${analysisType}...${attemptMessage}`);
                 
                 const apiKey = "";
-                // *** UPDATED API URL TO USE GEMINI-PRO-VISION ***
+                // *** Using the stable GEMINI-PRO-VISION model ***
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent?key=${apiKey}`;
 
                 try {
@@ -192,29 +192,25 @@
                     if (response.ok) {
                         const result = await response.json();
                         const candidate = result.candidates?.[0];
-                        // NOTE: gemini-pro-vision has a slightly different response structure
                         const textPart = candidate?.content?.parts?.find(part => part.text);
                         if (textPart) {
-                            // The JSON might be wrapped in markdown backticks, so we clean it.
                             const cleanedText = textPart.text.replace(/```json/g, '').replace(/```/g, '').trim();
                             const adviceJson = JSON.parse(cleanedText);
                             displayAdvice(adviceJson);
                             setLoadingState(false);
-                            return; // Success! Exit the function.
+                            return; 
                         } else {
                             throw new Error("AI response was empty or malformed.");
                         }
                     }
 
-                    // If response not OK, check for retryable status codes
                     if (response.status === 403 || response.status === 429 || response.status >= 500) {
                         if (attempt === maxRetries - 1) {
                             throw new Error(`API Error: ${response.status} after ${maxRetries} attempts.`);
                         }
                         await new Promise(resolve => setTimeout(resolve, delay));
-                        delay *= 2; // Exponential backoff
+                        delay *= 2; 
                     } else {
-                        // For non-retryable errors (e.g., 400 Bad Request), fail immediately.
                         throw new Error(`API Error: ${response.status}`);
                     }
                 } catch (error) {
@@ -228,7 +224,6 @@
                         setLoadingState(false);
                         return;
                     }
-                     // If it's a network error, wait and retry
                     if (!error.message.includes("API Error")) {
                         await new Promise(resolve => setTimeout(resolve, delay));
                         delay *= 2;
@@ -267,13 +262,13 @@
         });
 
         function createImagePayload(base64Data, mimeType) {
-            // Note: gemini-pro-vision doesn't use systemInstruction. We embed it in the user prompt.
             const userPrompt = `You are an expert poker AI. Analyze the attached image of a poker table. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}. Use "N/A" for unclear info.`;
             return {
                 contents: [{ 
                     parts: [
                         { text: userPrompt }, 
-                        { inline_data: { mime_type: mimeType, data: base64Data } }
+                        // *** CORRECTED 'inline_data' to 'inlineData' ***
+                        { inlineData: { mimeType: mimeType, data: base64Data } }
                     ] 
                 }]
             };
@@ -306,7 +301,6 @@
             try {
                 if (!navigator.clipboard || !navigator.clipboard.read) {
                     displayError("Pasting is not supported on this browser. Please try uploading.");
-                    // As a fallback, trigger the hidden file input
                     screenshotUploader.click();
                     return;
                 }
@@ -323,7 +317,7 @@
             } catch (err) {
                 console.error("Paste failed:", err);
                 displayError("Could not paste image. Permission may be denied. Try uploading instead.");
-                screenshotUploader.click(); // Offer upload as a final fallback
+                screenshotUploader.click(); 
             }
         }
         
@@ -344,14 +338,12 @@
             const textPrompt = `My Cards: ${myCards}\nCommunity Cards: ${communityCards}\nPot Size: ${potSize || 'N/A'}\nMy Stack: ${myStack || 'N/A'}`;
             const systemPrompt = `You are an expert poker AI. Analyze the following text-based poker hand data. Respond ONLY with a valid JSON object: {"gameState": {"myCards": "string", "communityCards": "string", "potSize": "string", "myStack": "string", "analysis": "string"}, "recommendation": {"action": "string", "amount": "string", "justification": "string"}}.`;
             
-            // Note: gemini-pro (text only) is used here for manual entry
             const textApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${""}`;
             
             const payload = {
                 contents: [{ parts: [{ text: `${systemPrompt}\n\n${textPrompt}` }] }]
             };
             
-            // Using a simplified call here since it's a text-only request
             setLoadingState(true, "Analyzing Manual Data...");
             try {
                  const response = await fetch(textApiUrl, {
@@ -394,7 +386,7 @@
                 analyzeButton.innerHTML = `<span>${message}</span>`;
             } else {
                 analyzeButton.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                     <span>Analyze Again</span>`;
             }
         }
